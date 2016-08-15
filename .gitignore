@@ -1,0 +1,6 @@
+node_modules/*
+public/*
+test-results/*
+docker/bowie.tar.gz
+npm-debug.log
+.sonar

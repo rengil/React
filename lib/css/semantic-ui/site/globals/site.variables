@@ -1,0 +1,9 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@blue:   #0091EA;
+@orange: #FC7816;
+@pink:   #CC3467;
+@teal:   #01BFA5;
+@primaryColor: #17AB39;  
