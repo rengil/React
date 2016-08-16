@@ -1,6 +1,8 @@
 node_modules/*
+build/*
 public/*
 test-results/*
 docker/bowie.tar.gz
 npm-debug.log
 .sonar
+.lib/css/semantic-ui/*
