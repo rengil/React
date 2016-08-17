@@ -118,7 +118,7 @@ var browserifyTask = function (options) {
 
 gulp.task('copySemanticThemes', function () {
   return gulp.src('./node_modules/semantic-ui-less/themes/**')
-  .pipe(gulp.dest('public/themes'));
+  .pipe(gulp.dest('build/themes'));
 });
 
 gulp.task('remove-symlink', function () {
@@ -138,8 +138,13 @@ gulp.task('createCss', ['copySemanticThemes', 'remove-symlink', 'semantic-symlin
     .pipe(gulp.dest('./build/css'));
 });
 
+gulp.task('copyIndexHtml', function () {
+  return gulp.src('./app/**/*.html')
+		.pipe(gulp.dest('./build'));
+});
+
 // Starts our development workflow
-gulp.task('default', ['createCss'], function () {
+gulp.task('default', ['copyIndexHtml', 'createCss'], function () {
   livereload.listen();
 
   browserifyTask({
