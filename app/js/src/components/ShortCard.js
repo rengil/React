@@ -1,18 +1,24 @@
 var React = require('react');
 
-class ShortCard extends React.Component {
-  constructor() {
-     super();
-     this.state = {
-       enable: false
-     };
-     this.handleClick = this.handleClick.bind(this);
-  }
+const ShortCard = React.createClass({
+  getInitialState() {
+    return {
+     enable: false,
+     elements: []
+   };
+  },
 
   handleClick() {
-     console.log(this.state.enable)
-     this.setState({enable: true});
-  }
+    console.log(this.state.enable);
+
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      method: 'GET',
+      success: function (data) {
+        this.setState({tests: data});
+      }.bind(this)
+    });
+  },
 
   render() {
     return (
@@ -41,11 +47,17 @@ class ShortCard extends React.Component {
                  {this.props.buttonText}
               </button>
 
+              {this.state.tests ?
+                <div className='ui segment'>
+                {this.state.tests.map(data =>
+                 data.title)}
+                </div>
+              : ''}
             </div>
 
           </div>
         );
   }
-}
+});
 
 module.exports = ShortCard;

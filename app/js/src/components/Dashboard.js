@@ -6,12 +6,12 @@ module.exports = React.createClass({
   render: function () {
     return (
      <div className='ui fluid container top-margin-container'>
+              <h1 className='ui big header'> Um dashboard simple e simpático </h1>
+              <h3 className='ui sub-header'> Componentizado </h3>
               <div className='ui stackable grid'>
                   <div id='dashboard-top-elements' className='row ui linked cards'>
                      {topDashboardData.map(topDashboardData =>
                       <ShortCard {...topDashboardData} />)}
-                      {dashboardData.map(topDashboardData =>
-                       <ShortCard {...topDashboardData} />)}
                   </div>
                 </div>
 
@@ -55,7 +55,7 @@ var topDashboardData = [
 
   var topDashboardData = [
       {
-        title: 'Um Card?',
-        desc: ' Um Card para referenciar melhor suas atividades',
-        buttonText: 'COMPONENTIZADO e JÁ RESPONSE CLIQUES',
+        title: 'Faça seu Hotzones',
+        desc: ' Para começar',
+        buttonText: 'AVANÇAR',
       }
