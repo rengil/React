@@ -1,4 +1,5 @@
 var React = require('react');
+var Request = require('./Request');
 
 const ShortCard = React.createClass({
   getInitialState() {
@@ -9,15 +10,11 @@ const ShortCard = React.createClass({
   },
 
   handleClick() {
-    console.log(this.state.enable);
 
-    $.ajax({
-      url: 'https://jsonplaceholder.typicode.com/posts',
-      method: 'GET',
-      success: function (data) {
-        this.setState({tests: data});
-      }.bind(this)
-    });
+    Request.getMyData().then(function (data) {
+      this.setState({tests: data});
+    }.bind(this));
+
   },
 
   render() {
